@@ -1,0 +1,1 @@
+A simple showcase to how run an aws lambda in localstack with docker

@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  localstack:
+    image: localstack/localstack
+    ports:
+      - "4574:4574"
+    environment:
+      SERVICES: lambda
+      LAMBDA_EXECUTOR: docker
+      LAMBDA_REMOVE_CONTAINERS: 'false'
+      DOCKER_HOST: unix:///var/run/docker.sock
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"

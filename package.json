@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "aws-sdk": "^2.646.0"
+  },
+  "devDependencies": {
+    "bash-task-runner": "^0.9.0"
+  }
+}
