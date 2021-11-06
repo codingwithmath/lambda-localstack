@@ -1,6 +1,6 @@
 const AWS = require('aws-sdk');
 
-const getEndPoint = new AWS.Endpoint('http://localhost:4574');
+const getEndPoint = new AWS.Endpoint('http://localhost:4566');
 
 AWS.config.update({ 
 region: 'sa-east-1',
@@ -13,16 +13,15 @@ credentials: {
 const lambda = new AWS.Lambda();
 
 const params = {
-  FunctionName: "arquivos-teste",
-}
-async function invokeLambda() {
-let resLambda = await lambda.invoke({ FunctionName: "arn:aws:lambda:sa-east-1:000000000000:function:arquivos-teste", 
+  FunctionName: "arn:aws:lambda:sa-east-1:000000000000:function:test", 
   InvocationType: "RequestResponse", 
   Payload: JSON.stringify({
-    Hello: "Teste",
+    name: "testing",
   })
-})
-  .promise()
+}
+
+async function invokeLambda() {
+  const resLambda = await lambda.invoke(params).promise()
 
   console.log(resLambda);
 };
